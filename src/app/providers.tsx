@@ -8,7 +8,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
     new QueryClient({
       defaultOptions: {
         queries: {
-          cacheTime: 1000 * 60,
+          cacheTime: 1000 * 60 * 30,
         },
       },
     }),
