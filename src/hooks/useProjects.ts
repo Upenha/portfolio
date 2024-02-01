@@ -13,7 +13,6 @@ export function useProjects() {
   const { data, isLoading, error } = useQuery<TProjectItem[]>({
     queryKey: ['projects'],
     queryFn: getProjectsData,
-    refetchInterval: 1000,
   });
 
   return { data, error, isLoading };

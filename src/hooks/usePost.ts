@@ -19,7 +19,6 @@ export function usePost(slug: string) {
   const { data, isLoading, error } = useQuery<Post>({
     queryKey: ['post', slug],
     queryFn: () => getPostData(slug),
-    refetchInterval: 1000,
   });
 
   return { data, error, isLoading };

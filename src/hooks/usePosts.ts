@@ -13,7 +13,6 @@ export function usePosts() {
   const { data, isLoading, error } = useQuery<TPost[]>({
     queryKey: ['posts'],
     queryFn: getPostsData,
-    refetchInterval: 1000,
   });
 
   return { data, error, isLoading };
