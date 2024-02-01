@@ -11,7 +11,7 @@ export const MarkdownViewer = ({ content }: MarkdownViewerProps) => {
     <ReactMarkdown
       components={{
         a({ node, ...rest }) {
-          return <a target="_blank" {...rest} />;
+          return <a target="_blank" rel="noreferrer" {...rest} />;
         },
         hr({ node, ...rest }) {
           return <Separator />;

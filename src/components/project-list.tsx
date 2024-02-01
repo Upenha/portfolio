@@ -21,7 +21,7 @@ export const ProjectList = ({ data, isLoading }: Data) => {
 const NotFound = () => {
   return (
     <p className="text-muted-foreground">
-      i don't have a published post yet :/
+      i don&apos;t have a published post yet :/
     </p>
   );
 };

@@ -1,3 +1,6 @@
 {
-  "extends": "@upenha/eslint-config/node"
+  "extends": "@upenha/eslint-config/react",
+  "env": {
+    "browser": true
+  }
 }
