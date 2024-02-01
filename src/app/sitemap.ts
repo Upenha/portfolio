@@ -22,17 +22,3 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...posts,
   ];
 }
-
-// export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-//   const posts = await getPostsData().then((res) => res);
-//   return posts.map((post: TPost) => ({
-//     url: `${BASE_URL}/blog/${post.slug}`,
-//     lastModified: new Date(),
-//     changeFrequency: 'monthly',
-//     priority: 0.5,
-//   }));
-//   //   return posts.map((product) => ({
-//   //     url: `${BASE_URL}/product/${id}`,
-//   //     lastModified: product.date,
-//   //   }))
-// }
