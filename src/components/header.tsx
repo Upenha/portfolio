@@ -26,6 +26,7 @@ export const Header = () => {
           <Link
             href="https://github.com/upenha"
             className={buttonVariants({ variant: 'ghost', size: 'icon' })}
+            aria-label="Github"
           >
             <GitHubLogoIcon className="h-5 w-5" />
           </Link>
