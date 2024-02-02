@@ -18,7 +18,7 @@ export function ThemeButton() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" aria-label="Change theme">
           <SunIcon className="block dark:hidden h-5 w-5" />
           <MoonIcon className="hidden dark:block h-5 w-5" />
         </Button>

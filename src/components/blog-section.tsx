@@ -10,9 +10,7 @@ export const BlogSection = async () => {
           posts
         </h2>
       </div>
-      <ul className="space-y-1.5 py-4">
-        <PostList data={posts} />
-      </ul>
+      <PostList data={posts} />
     </article>
   );
 };

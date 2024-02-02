@@ -7,11 +7,11 @@ type Data = {
 export const PostList = ({ data }: Data) => {
   if (!data) return <NotFound />;
   return (
-    <div className="flex flex-col gap-4">
+    <ul className="py-4">
       {data.map((item, i) => (
         <PostItem {...item} key={i} />
       ))}
-    </div>
+    </ul>
   );
 };
 

@@ -10,9 +10,7 @@ export const ProjectsSection = async () => {
           projects
         </h2>
       </div>
-      <ul className="space-y-4 py-4">
-        <ProjectList data={projects} />
-      </ul>
+      <ProjectList data={projects} />
     </article>
   );
 };

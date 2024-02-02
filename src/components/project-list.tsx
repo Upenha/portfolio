@@ -7,11 +7,11 @@ type Data = {
 export const ProjectList = ({ data }: Data) => {
   if (!data) return <NotFound />;
   return (
-    <div className="flex flex-col gap-4">
+    <ul className="space-y-1.5 py-4">
       {data.map((item, i) => (
         <ProjectItem {...item} key={i} />
       ))}
-    </div>
+    </ul>
   );
 };
 
