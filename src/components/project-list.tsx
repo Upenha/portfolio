@@ -1,19 +1,16 @@
 import { TProjectItem } from '@/services/notion';
 import { ProjectItem } from './project-item';
-import { For } from 'million/react';
 
 type Data = {
-  data: TProjectItem[] | undefined;
-  isLoading: boolean;
+  data: TProjectItem[];
 };
-export const ProjectList = ({ data, isLoading }: Data) => {
-  if (isLoading) return;
+export const ProjectList = ({ data }: Data) => {
   if (!data) return <NotFound />;
   return (
     <div className="flex flex-col gap-4">
-      <For ssr each={data}>
-        {(item) => <ProjectItem {...item} />}
-      </For>
+      {data.map((item, i) => (
+        <ProjectItem {...item} key={i} />
+      ))}
     </div>
   );
 };

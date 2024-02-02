@@ -1,19 +1,16 @@
 import { TPost } from '@/services/notion';
-import { For } from 'million/react';
 import { PostItem } from './post-item';
 
 type Data = {
-  data: TPost[] | undefined;
-  isLoading: boolean;
+  data: TPost[];
 };
-export const PostList = ({ data, isLoading }: Data) => {
-  if (isLoading) return;
+export const PostList = ({ data }: Data) => {
   if (!data) return <NotFound />;
   return (
     <div className="flex flex-col gap-4">
-      <For ssr each={data}>
-        {(post) => <PostItem {...post} />}
-      </For>
+      {data.map((item, i) => (
+        <PostItem {...item} key={i} />
+      ))}
     </div>
   );
 };

@@ -1,6 +1,11 @@
-import million from 'million/compiler';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   async headers() {
     return [
       {
@@ -23,4 +28,4 @@ const nextConfig = {
   },
 };
 
-export default million.next(nextConfig, { auto: { rsc: true } });
+export default nextConfig;

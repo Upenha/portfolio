@@ -10,7 +10,6 @@ export type TProjectItem = {
   name: string;
   url: string;
   description: string;
-  githubLink: string;
 };
 
 export type TPost = {
@@ -31,7 +30,6 @@ export async function getProjects() {
       name: project.properties.name.title[0].plain_text,
       url: project.properties.link.url,
       description: project.properties.description.rich_text[0].plain_text,
-      githubLink: project.properties.github.url,
     };
   }) as TProjectItem[];
 }

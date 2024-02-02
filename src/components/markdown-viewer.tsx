@@ -1,5 +1,5 @@
+'use client';
 import { Separator } from '@radix-ui/react-dropdown-menu';
-import { block } from 'million/react';
 import ReactMarkdown from 'react-markdown';
 
 type MarkdownViewerProps = {
@@ -23,5 +23,3 @@ export const MarkdownViewer = ({ content }: MarkdownViewerProps) => {
     </ReactMarkdown>
   );
 };
-
-export const MarkdownViewerBlock = block(MarkdownViewer);

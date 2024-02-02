@@ -1,14 +1,15 @@
-'use client';
 import { redirect } from 'next/navigation';
 import moment from 'moment';
-import { Post, usePost } from '@/hooks/usePost';
-import { MarkdownViewerBlock } from '@/components/markdown-viewer';
+import { MarkdownViewer } from '@/components/markdown-viewer';
+import { getPost } from '@/actions/get-post';
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const { isLoading, data } = usePost(params.slug);
+export default async function BlogPost({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { post } = await getPost(params.slug);
   if (!params.slug) redirect('/');
-  if (isLoading) return <p>Loading...</p>;
-  const post = data as Post;
 
   const wordsCount = post.content.match(/\w+/g)?.length!;
   const readTime =
@@ -32,7 +33,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </div>
         </div>
         <div className="flex-1">
-          <MarkdownViewerBlock content={post.content} />
+          <MarkdownViewer content={post.content} />
         </div>
       </div>
     </div>
