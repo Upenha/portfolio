@@ -16,6 +16,10 @@ export async function generateMetadata({
   return {
     title: `${post.title} | Upenha's blog`,
     description: content.at(0)?.split(' ').slice(0, 50).join(' ') + '...',
+    openGraph: {
+      title: `${post.title} | Upenha's blog`,
+      description: content.at(0)?.split(' ').slice(0, 50).join(' ') + '...',
+    },
   };
 }
 
