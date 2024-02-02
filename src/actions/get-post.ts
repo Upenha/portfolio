@@ -6,6 +6,7 @@ type GetPostResponse = {
   post: {
     title: string;
     content: string;
+    tags: string[];
     createdAt: any;
   };
 };

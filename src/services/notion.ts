@@ -80,6 +80,7 @@ export async function getPost(slug: string) {
     return {
       title: page.properties.title.title[0].plain_text,
       content: mdString.parent,
+      tags: page.properties.tags.multi_select.map((tag: any) => tag.name),
       createdAt: page.created_time,
     };
   } catch (err) {

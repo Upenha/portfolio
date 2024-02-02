@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: 'https://upenha.vercel.app',
     title: `Upenha's Portfolio`,
     description: 'A cool portfolio made with Nextjs, Tailwind and Shadcn UI',
-    siteName: `Upenha's Portfolio`,
+    siteName: `@upenha on github`,
   },
   authors: [
     {

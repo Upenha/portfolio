@@ -3,6 +3,21 @@ import moment from 'moment';
 import { MarkdownViewer } from '@/components/markdown-viewer';
 import { getPost } from '@/actions/get-post';
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { post } = await getPost(params.slug);
+  const content = post.content.split('\n').filter(Boolean);
+  //   console.log(post.content.split('\n').filter(Boolean).shift());
+  content.shift();
+  return {
+    title: `${post.title} | Upenha's blog`,
+    description: content.at(0)?.split(' ').slice(0, 50).join(' ') + '...',
+  };
+}
+
 export default async function BlogPost({
   params,
 }: {
