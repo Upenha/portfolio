@@ -1,6 +1,6 @@
 import { getPost } from '@/actions/get-post';
 import { DynamicImage } from '@/components/dynamic-image';
-import { BASE_URL } from '@/lib/utils';
+import { loadFonts } from '@/lib/fonts';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
@@ -12,29 +12,14 @@ export const size = {
 
 export const contentType = 'image/png';
 
-const geistBold = fetch(new URL('/fonts/Geist-Bold.otf', BASE_URL)).then(
-  (res) => res.arrayBuffer(),
-);
-const geistSemibold = fetch(
-  new URL('/fonts/Geist-SemiBold.otf', BASE_URL),
-).then((res) => res.arrayBuffer());
-
 export default async function Image({ params }: { params: { slug: string } }) {
-  const geistBoldData = await geistBold;
-  const geistSemiboldData = await geistSemibold;
   const { post } = await getPost(params.slug);
+  const fonts = await loadFonts();
 
-  return new ImageResponse(<DynamicImage {...post} />, {
+  const options = {
+    fonts,
     ...size,
-    fonts: [
-      {
-        data: geistBoldData,
-        name: 'Geist Bold',
-      },
-      {
-        data: geistSemiboldData,
-        name: 'Geist Semibold',
-      },
-    ],
-  });
+  };
+
+  return new ImageResponse(<DynamicImage {...post} />, options);
 }
