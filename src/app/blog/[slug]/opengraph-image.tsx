@@ -10,7 +10,7 @@ const geistSemibold = fetch(
   new URL('/fonts/Geist-SemiBold.otf', BASE_URL),
 ).then((res) => res.arrayBuffer());
 
-export async function Image({ params }: { params: { slug: string } }) {
+export default async function Image({ params }: { params: { slug: string } }) {
   const geistBoldData = await geistBold;
   const geistSemiboldData = await geistSemibold;
   const { post } = await getPost(params.slug);
