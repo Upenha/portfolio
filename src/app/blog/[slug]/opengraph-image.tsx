@@ -3,6 +3,8 @@ import { Logo } from '@/components/icons';
 import { BASE_URL } from '@/lib/utils';
 import { ImageResponse } from 'next/og';
 
+export const runtime = 'edge';
+
 const geistBold = fetch(new URL('/fonts/Geist-Bold.otf', BASE_URL)).then(
   (res) => res.arrayBuffer(),
 );
