@@ -3,6 +3,7 @@ import moment from 'moment';
 import { MarkdownViewer } from '@/components/markdown-viewer';
 import { getPost } from '@/actions/get-post';
 import { Metadata } from 'next';
+import { BASE_URL } from '@/lib/utils';
 
 export async function generateMetadata({
   params,
@@ -11,15 +12,33 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { post } = await getPost(params.slug);
   const content = post.content.split('\n').filter(Boolean);
-  //   console.log(post.content.split('\n').filter(Boolean).shift());
   content.shift();
+  console.log(`${BASE_URL}/blog/${params.slug}`);
   return {
+    // metadataBase: new URL(`${BASE_URL}/blog/${post.slug}`),
     title: `${post.title} | Upenha's blog`,
     description: content.at(0)?.split(' ').slice(0, 50).join(' ') + '...',
     openGraph: {
+      type: 'article',
+      locale: 'en_US',
+      url: `${BASE_URL}/blog/${params.slug}`,
       title: `${post.title} | Upenha's blog`,
       description: content.at(0)?.split(' ').slice(0, 50).join(' ') + '...',
+      siteName: `@upenha on github`,
     },
+    twitter: {
+      title: `${post.title} | Upenha's blog`,
+      description: content.at(0)?.split(' ').slice(0, 50).join(' ') + '...',
+      card: 'summary_large_image',
+      creator: '@upewantstokys',
+    },
+    authors: [
+      {
+        name: 'upenha',
+        url: BASE_URL,
+      },
+    ],
+    keywords: post.tags,
   };
 }
 

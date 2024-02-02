@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ReactNode } from 'react';
-import { cn } from '@/lib/utils';
+import { BASE_URL, cn } from '@/lib/utils';
 
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://upenha.vercel.app',
+    url: BASE_URL,
     title: `Upenha's Portfolio`,
     description: 'A cool portfolio made with Nextjs, Tailwind and Shadcn UI',
     siteName: `@upenha on github`,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'upenha',
-      url: 'https://upenha.vercel.app',
+      url: BASE_URL,
     },
   ],
   creator: 'upenha',
