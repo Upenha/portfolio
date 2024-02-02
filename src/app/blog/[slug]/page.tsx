@@ -2,12 +2,13 @@ import { redirect } from 'next/navigation';
 import moment from 'moment';
 import { MarkdownViewer } from '@/components/markdown-viewer';
 import { getPost } from '@/actions/get-post';
+import { Metadata } from 'next';
 
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}) {
+}): Promise<Metadata> {
   const { post } = await getPost(params.slug);
   const content = post.content.split('\n').filter(Boolean);
   //   console.log(post.content.split('\n').filter(Boolean).shift());
