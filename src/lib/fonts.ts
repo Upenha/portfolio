@@ -10,8 +10,8 @@ export async function loadFont(file: string): Promise<ArrayBuffer> {
 }
 
 export async function loadFonts(): Promise<FontOptions[]> {
-  const geistBold = await loadFont('Geist-Bold');
-  const geistSemibold = await loadFont('Geist-Semibold.ttf');
+  const geistBold = await loadFont('Geist-Bold.otf');
+  const geistSemibold = await loadFont('Geist-Semibold.otf');
 
   const fonts: FontOptions[] = [
     {

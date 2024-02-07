@@ -11,6 +11,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: `Upenha's Portfolio`,
   description: 'A cool portfolio made with Nextjs, Tailwind and Shadcn UI',
   keywords: [

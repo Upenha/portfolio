@@ -13,6 +13,7 @@ export async function generateMetadata({
   const { post } = await getPost(params.slug);
   const content = smartSubstring(post.content, 50);
   return {
+    metadataBase: new URL(BASE_URL),
     title: `${post.title} | Upenha's blog`,
     description: content,
     openGraph: {
